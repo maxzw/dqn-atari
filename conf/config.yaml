@@ -1,0 +1,39 @@
+do_train: true
+load_path: null
+do_eval: true
+
+model:
+  env_id: "BreakoutNoFrameskip-v4"
+  num_envs: 1
+  vectorization_mode: "sync"
+  double_dqn: false
+  dueling: false
+  layers: [64, 64]
+  buffer_class: "ReplayBuffer"
+  buffer_size: 100_000
+  buffer_kwargs: {}
+  gamma: 0.999
+  batch_size: 32
+  train_freq: 1
+  gradient_steps: 1
+  lr: 2e-5
+  target_update_freq: 10
+  tau: 1.0
+  epsilon_start: 0.1
+  epsilon_end: 0.01
+  epsilon_decay: 1e6
+  learning_starts: 1000
+  max_episode_length: 1e6
+  max_grad_norm: 10.0
+  force_cpu: false
+
+train:
+  training_steps: 1_000_000
+  checkpoint_every: 100_000
+  eval_every: 100_000
+  eval_runs: 20
+  num_gifs: 5
+
+eval:
+  eval_runs: 20
+  gif_path_format: null

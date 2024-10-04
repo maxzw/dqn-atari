@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "dqn-atari"
+version = "0.1.0"
+description = "Implementation of Deep Q-Network"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.4.1"
+gymnasium = {version = "^0.29.1", extras = ["atari", "accept-rom-license", "other"]}
+tqdm = "^4.66.5"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.isort]
+force-single-line = true
